@@ -1,0 +1,37 @@
+@import "../../utils/scss/avatar.scss";
+
+
+.manage-main {
+
+    z-index:0;
+    flex: 1;
+ 
+
+    &___header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        &--avatar {
+            margin-bottom: 0.5rem;
+        
+            position: relative;
+
+            > img {
+                width: 20%;
+             
+                
+            }
+            &___active-in {
+                @include avatar(1rem, 1rem, 42%, 8%);
+            }
+        }
+
+        &--active {
+            font-size: 0.9rem;
+            font-style: unset;
+            opacity: 0.8;
+        }
+    }
+}

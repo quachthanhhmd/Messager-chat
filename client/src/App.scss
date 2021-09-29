@@ -10,6 +10,14 @@ body {
   width: 100vw;
   top: 0;
   left: 0;
+
+  /* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+
 }
 
 body.dark-mode {
@@ -20,19 +28,21 @@ body.dark-mode {
 
   position: fixed;
   
+  /* Track */
+::-webkit-scrollbar-track {
+  background: $bg-dark-mode;
+  border-radius: 10px;
+}
+
+
 }
 
 
 /* width */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 5px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #ffffff;
-  border-radius: 10px;
-}
 
 // /* Handle */
 // ::-webkit-scrollbar-thumb {

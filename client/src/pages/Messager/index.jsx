@@ -5,6 +5,7 @@ import SlideFriends from '../../components/SlideFriends';
 import MessageBox from '../../components/MessageBox';
 
 import "./index.scss";
+import MessageManage from '../../components/MessageManage';
 
 Messager.propTypes = {
     
@@ -14,7 +15,8 @@ function Messager(props) {
     return (
         <div className="message-screen">
             <SlideFriends/>     
-            <MessageBox/>       
+            <MessageBox/>     
+            <MessageManage/>  
         </div>
     );
 }

@@ -5,10 +5,9 @@
    
     max-height: 100vh;
 
+    padding-top: 0;
 
-
-    padding: 1%;
-    margin: 0;
+    padding: 0 1% 0 1%;
     border-right: 1px solid #a7a7a7;
 
     &___header {
@@ -93,7 +92,7 @@
                 &-last-messages {
                     overflow: hidden;
                 
-                    width: 100%;
+                    width: 80%;
                     text-overflow: ellipsis;
                     display: -webkit-box;
 
