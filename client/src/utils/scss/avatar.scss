@@ -1,0 +1,10 @@
+@mixin avatar($width, $height, $right, $bottom) {
+    width: $width;
+    height: $height;
+    border-radius: 100%;
+    background-color: #31a24c;
+    position: absolute;
+    bottom: $bottom;
+    right: $right;
+}
+

@@ -1,0 +1,127 @@
+@import "../../utils/scss/avatar";
+
+.slider-main {
+    width: 20%;
+   
+    max-height: 100vh;
+
+
+
+    padding: 1%;
+    margin: 0;
+    border-right: 1px solid #a7a7a7;
+
+    &___header {
+        
+  
+        &-infor {
+            display: flex;
+            justify-content: space-between;
+            margin: 2%;
+
+            &___title {
+                font-size: 2rem;
+                font-weight: bold;
+            }
+        }
+
+        &-search {
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+
+            &___input {
+                background: #f4f4f8;
+                padding: 0.5rem 0.6rem;
+                border-radius: 10px;
+                border: none;
+                font-size: 14px;
+
+                ::placeholder {
+                    text-align: center;
+                }
+
+                :focus::placeholder {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    &___conversation {
+        overflow: scroll;
+        flex-shrink: 0.5;
+        max-height: 85vh;
+        min-height: 0;
+        width:100%;
+
+      
+        &-user {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+          
+            &___avatar {
+                width: 23%;
+                position: relative;
+           
+                
+                &-online {
+                    @include avatar(0.8rem, 0.8rem, 10%, 20%);
+                  
+                }
+                > img {
+                    width: 3.8rem;
+                    height: auto;
+                    padding: 0;
+
+                    border-radius: 100%;
+                    border: none;
+                }
+            }
+
+            &___messages {
+                flex: 1;
+                
+               
+                align-self: center;
+
+                &-username {
+                    font-weight: 500;
+                }
+                &-last-messages {
+                    overflow: hidden;
+                
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+
+                    -webkit-line-clamp: 1; /* number of lines to show */
+                    -webkit-box-orient: vertical;
+
+                    margin-top: 3%;
+                    font-size: 0.9rem;
+
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+}
+
+.slider-main:hover {
+    ::-webkit-scrollbar-thumb {
+        background: rgb(192, 192, 192);
+        border-radius: 10px;
+    }
+}
+
+.user-hover {
+    -khtml-opacity: .50;
+    -moz-opacity: .50;
+    -ms-filter: ”alpha(opacity=50)”;
+    filter: alpha(opacity=50);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+    opacity: .50;
+}

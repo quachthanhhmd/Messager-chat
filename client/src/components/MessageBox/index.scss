@@ -1,0 +1,53 @@
+@import "../../utils/scss/color";
+
+.message-box {
+
+    border-right: 1px solid $border-layout;
+  
+    width: 50%;
+    max-height: 100%;
+    padding-top: 2rem;
+   
+    
+    z-index: 10;
+
+    &___header {
+
+        max-height: 4rem;
+        border-top: 1px solid $border-layout;
+        border-bottom: 1px solid $border-layout;
+        
+        padding: 0.7rem;
+
+        &___information {
+
+            display: flex;
+            justify-content: flex-start;
+
+            &--image {
+                
+                > img {
+
+                    width: 2.7rem;
+                    height: auto;
+                    border-radius: 100%;
+
+                }
+            }
+
+            &--summary {
+                margin-top: 0.2rem;
+                margin-left: 0.5rem;
+
+                &___active {
+             
+                    margin-top: 1px;
+                    
+                    font-size: 0.9rem;
+                    font-style: unset;
+                    opacity:0.8;
+                }
+            }
+        }
+    }
+}
