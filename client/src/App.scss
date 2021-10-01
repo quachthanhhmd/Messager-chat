@@ -1,4 +1,7 @@
 @import "./utils/scss/_color";
+@import "./utils/scss/theme.scss";
+
+
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -6,27 +9,25 @@ body {
   font-size: 1rem;
   height: 100%;
   width: 100vw;
-  $background-login: "https://getwallpapers.com/wallpaper/full/3/6/4/10443.jpg"; /* Track */
+
+  /* Track */
   ::-webkit-scrollbar-track {
     background: #ffffff;
     border-radius: 10px;
   }
-}
 
-body.dark-mode {
-  $background-login: "http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg";
-  background-color: $bg-dark-mode;
-  color: $white-text;
-  height: 100vh;
-  max-height: 100vh;
-
-  position: fixed;
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: $bg-dark-mode;
-    border-radius: 10px;
+    // matches data-theme="light" or data-theme="auto" with system instructing light mode
+  @include light {
+    background: white;
+    color: black;
   }
+  
+  // matches data-theme="dark" or data-theme="auto" with system instructing dark mode
+  @include dark {
+    background: $bg-dark-mode;
+    color: $white-text;
+  }
+
 }
 
 /* width */

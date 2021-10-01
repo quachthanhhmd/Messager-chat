@@ -7,29 +7,31 @@ import "./index.scss";
 const ThemeMode = () => {
 
     const getTheme = localStorage.getItem('Theme') || 'light';
-    if (getTheme === 'dark'){
+    if (getTheme === 'dark') {
 
-        document.body.classList.add('dark-mode');
+        document.documentElement.setAttribute('data-theme', "dark");
     }
+    else
+        document.documentElement.setAttribute('data-theme', "light");
 
-    const [themeState, setThemeState] = useState(getTheme === 'dark' ? true: false);
+    const [themeState, setThemeState] = useState(getTheme === 'dark' ? true : false);
 
     const handleChange = () => {
         setThemeState(!themeState);
 
         if (!themeState) {
             localStorage.setItem('Theme', 'dark');
-            document.body.classList.add('dark-mode');
+            document.documentElement.setAttribute('data-theme', "dark");
         } else {
             localStorage.setItem('Theme', 'light');
-            document.body.classList.remove('dark-mode');
+            document.documentElement.setAttribute('data-theme', "light");
         }
     }
 
 
     return (
         <DarkModeToggle
-            className = "mode-main"
+            className="mode-main"
             onChange={handleChange}
             checked={themeState}
             size={80}
