@@ -10,10 +10,10 @@ function App() {
     <div className="App">
 
       <ThemeMode />
-      {/* <Messager/> */}
+      <Messager/>
 
       {/* <Route path="/" exact component={Messager} /> */}
-      <Login />
+      {/* <Login /> */}
 
     </div>
 

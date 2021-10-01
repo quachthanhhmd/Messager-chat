@@ -1,6 +1,7 @@
 .message-screen {
-    margin-top: 2rem;
-
+    position: fixed;
+    width: 100%;
+    padding-top: 2rem;
     display: flex;
     justify-content: left;
 }

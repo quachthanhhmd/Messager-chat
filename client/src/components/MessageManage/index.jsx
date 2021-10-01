@@ -258,7 +258,7 @@ function MessageManage(props) {
                             {
                                 peopleList.map(people => (
                                     <div className="manage-main___slide-list--content___photo-list--image">
-                                        <img src="/avatar.png" alt="history"/>
+                                        <img src="/logo192.png" alt="history"/>
                                     </div>
                                 ))
                             }
