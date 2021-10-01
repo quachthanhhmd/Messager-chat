@@ -193,6 +193,7 @@ function MessageManage(props) {
 
                     </div>
                 </div>
+                <div className="manage-main___slide-list--line"></div>
                 <div className="manage-main___slide-list___custom-chat">
                     <div id="slide-2" className="manage-main___slide-list--collapsible"
                         onClick={handleClick}>
@@ -248,6 +249,7 @@ function MessageManage(props) {
                         </div>
                     </div>
                 </div>
+                <div className="manage-main___slide-list--line"></div>
                 <div className="manage-main___slide-list___custom-chat">
                     <div id="slide-3" className="manage-main___slide-list--collapsible"
                         onClick={handleClick}>

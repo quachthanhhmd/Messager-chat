@@ -1,19 +1,24 @@
 @import "../../utils/scss/_color.scss";
 @import "../../utils/scss/theme";
 
+
+
 .login-main {
    
     @include light {
-        background-image: url($background-login);
+        background: url($background-login) no-repeat center scroll; 
     }
 
     // matches data-theme="dark" or data-theme="auto" with system instructing dark mode
     @include dark {
-        background-image: url($background-login-dark);
+        background: url($background-login-dark) no-repeat center scroll;
     }
 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
+  
     height: 100%;
 
     padding-top: 12%;

@@ -57,7 +57,7 @@
         }
 
         padding: 1rem;
-        height: 75vh;
+        height: 83%;
 
         overflow: auto;
 
@@ -93,11 +93,15 @@
         display: flex;
         justify-content: flex-start;
         padding-top: 1rem;
+        flex: 1;
 
         &___icon-list {
+            align-self: center;
+            
+            width: 10%;
             &--icon {
-                width: 1.5rem;
-                margin-left: 0.5rem;
+                width: (100% / 2 - 6%);
+                margin-left: 4%;
             }
         }
 
@@ -105,7 +109,7 @@
 
             margin-left: 1rem;
             display: inline;
-            width: 80%;
+            width: 78%;
            
             &--input {
                width: -webkit-fill-available;
