@@ -2,18 +2,146 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import "./index.scss";
 
-import Collapsible from 'react-collapsible';
-
-
-
 
 MessageManage.propTypes = {
 
 };
 
+
+const listPeople = [
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+    ,
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    },
+    {
+        id: 123,
+        displayName: "Quach Hai Thanh",
+        avatar: "/avatar.png",
+    }
+];
+
+const initIdActive = "slide-0";
+
 function MessageManage(props) {
 
-    const [isActive, setIsActive] = useState(false);
+    const [IdActive, setIdActive] = useState(initIdActive);
+    const [peopleList, setPeopleList] = useState(listPeople);
+
+    function handleClick(e) {
+
+        if (IdActive === e.target.id) {
+            setIdActive(initIdActive);
+            return;
+        }
+
+        setIdActive(e.target.id);
+
+    }
 
     return (
         <div className="manage-main">
@@ -33,67 +161,110 @@ function MessageManage(props) {
             </div>
             <div className="manage-main___slide-list">
 
-                {/* <Collapsible classParentString="manage-main___slide-list___custom-chat" trigger="Customize Chat">
-                        <p>
-                            This is the collapsible content. It can be any element or React
-                            component you like.
-                        </p>
-                        <p>
-                            It can even be another Collapsible component. Check out the next
-                            section!
-                        </p>
-                    </Collapsible> */}
                 <div className="manage-main___slide-list___custom-chat">
-                    <div className="manage-main___slide-list--collapsible"
-                        onClick={() => { setIsActive(!isActive) }}>
+                    <div id="slide-1" className="manage-main___slide-list--collapsible"
+                        onClick={handleClick}>
+
+                        People
+                    </div>
+                    <div className={`manage-main___slide-list--content ${IdActive === "slide-1" ? " manage-main___slide-list--show" : " manage-main___slide-list--hidden"}`}>
+                        <div className="manage-main___slide-list--content___people-list">
+                            {
+                                peopleList.map(people => (
+                                    <div className="manage-main___slide-list--content___people-list--user" id={people.id} >
+
+                                        <div className="manage-main___slide-list--content___people-list--user___avatar">
+                                            <img src={people.avatar} alt="avatar" />
+                                            <div className="manage-main___slide-list--content___people-list--user___avatar--active"></div>
+
+                                        </div>
+                                        <div className="manage-main___slide-list--content___people-list--user___name">
+                                            {people.displayName}
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+
+
+                        <div className="manage-main___slide-list--content___search">
+                            <input name="add-more-people" placeHolder="Add People" className="manage-main___slide-list--content___search--input" />
+                        </div>
+
+                    </div>
+                </div>
+                <div className="manage-main___slide-list___custom-chat">
+                    <div id="slide-2" className="manage-main___slide-list--collapsible"
+                        onClick={handleClick}>
                         Customize Chat
                     </div>
-                    <div className={`manage-main___slide-list--content ${isActive ? " manage-main___slide-list--show" : " manage-main___slide-list--hidden"}`}>
+                    <div className={`manage-main___slide-list--content ${IdActive === "slide-2" ? " manage-main___slide-list--show" : " manage-main___slide-list--hidden"}`}>
                         <div className="manage-main___slide-list--content___item">
-                            Change Theme
+
+
+                            <div className=" manage-main___slide-list--content___item--icon">
+                                <span className="material-icons">
+                                    tips_and_updates
+                                </span>
+                            </div>
+                            <div className="manage-main___slide-list--content___item--name">
+                                Change Theme
+                            </div>
+
                         </div>
                         <div className="manage-main___slide-list--content___item">
-                            Change Emoji
+                            <div className=" manage-main___slide-list--content___item--icon">
+                                <span className="material-icons">
+                                    thumb_up
+                                </span>
+                            </div>
+                            <div className="manage-main___slide-list--content___item--name">
+                                Change Emoji
+                            </div>
+
                         </div>
                         <div className="manage-main___slide-list--content___item">
-                            <div className="manage-main___slide-list--content___item--icon">
-                                <img src="/nick-name.png" alt="Edit nick name" />
+                            <div className=" manage-main___slide-list--content___item--icon">
+                                <span className="material-icons">
+                                    edit
+                                </span>
                             </div>
                             <div className="manage-main___slide-list--content___item--name">
                                 Edit Nicknames
                             </div>
-                
+
                         </div>
                         <div className="manage-main___slide-list--content___item">
-                            Search in Conversation
+
+
+                            <div className=" manage-main___slide-list--content___item--icon">
+                                <span className="material-icons">
+                                    search
+                                </span>
+                            </div>
+                            <div className="manage-main___slide-list--content___item--name">
+                                Search in Conversation
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="manage-main___slide-list___custom-chat">
-                    <div className="manage-main___slide-list--collapsible"
-                        onClick={() => { setIsActive(!isActive) }}>
-                        Customize Chat
+                    <div id="slide-3" className="manage-main___slide-list--collapsible"
+                        onClick={handleClick}>
+                        Photos
                     </div>
-                    <div className={`manage-main___slide-list--content ${isActive ? " manage-main___slide-list--show" : " manage-main___slide-list--hidden"}`}>
-                        <div className="manage-main___slide-list--content___item">
-                            Change Theme
-                        </div>
-                        <div className="manage-main___slide-list--content___item">
-                            Change Emoji
-                        </div>
-                        <div className="manage-main___slide-list--content___item">
-                            <div className="manage-main___slide-list--content___item--icon">
-                                <img src="/nick-name.png" alt="Edit nick name" />
+                    <div className={`manage-main___slide-list--content ${IdActive === "slide-3" ? " manage-main___slide-list--show" : " manage-main___slide-list--hidden"}`}>
+                            <div className="manage-main___slide-list--content___photo-list">
+                            {
+                                peopleList.map(people => (
+                                    <div className="manage-main___slide-list--content___photo-list--image">
+                                        <img src="/avatar.png" alt="history"/>
+                                    </div>
+                                ))
+                            }
                             </div>
-                            <div className="manage-main___slide-list--content___item--name">
-                                Edit Nicknames
-                            </div>
-                
-                        </div>
-                        <div className="manage-main___slide-list--content___item">
-                            Search in Conversation
-                        </div>
                     </div>
+
                 </div>
             </div>
 
