@@ -11,7 +11,10 @@ const conversationSchema = new mongoose.Schema<IConversation>(
             default: "Conversation with Friend",
         },
         peopleList: [
-            mongoose.Types.ObjectId
+            {
+                type: mongoose.Types.ObjectId
+                ref: "User",
+            }
         ],
 
     },

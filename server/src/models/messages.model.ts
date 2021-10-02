@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 import { MessageType } from "../constants/message.constant";
 
-import {IMesssagList, IMessage} from "../interfaces/messsage.interface";
+import {IMesssagList, IMessage} from "../interfaces/message.interface";
 
 const enumMessage = {
 

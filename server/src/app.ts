@@ -2,6 +2,10 @@ import express from "express";
 import { User } from "./models/index";
 
 
+import cors from "cors";
+import helmet from "helmet";
+
+
 class App {
 
     public app: express.Application;
@@ -18,6 +22,17 @@ class App {
 
         // parse urlencoded request body
         this.app.use(express.urlencoded({ extended: true }));
+
+        this.app.use(helmet());
+        this.app.use(helmet.noCache());
+        this.app.use(helmet.hsts({
+            maxAge: 31536000,
+            includeSubDomains: true
+        }));
+        
+        // Enable cors for all routes and origins
+        this.app.use(cors());
+
     }
     private Router() {
 

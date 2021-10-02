@@ -17,7 +17,7 @@ const EnumGender: IEnumValidate = {
 
 
 
-const UserSchema: mongoose.Schema = new mongoose.Schema<User>({
+const UserSchema: mongoose.Schema = new mongoose.Schema<IUser>({
 
     username: {
         type: String,
@@ -54,7 +54,12 @@ const UserSchema: mongoose.Schema = new mongoose.Schema<User>({
         required: true,
         enum: EnumGender.values,
     },
-
+    conversationList: [{type: mongoose.Schema.Types.ObjectId, ref: "Conversation"}],
+    lastLogin: {
+        type: Date,
+        required: true,
+        default: Date.now(),
+    }
 },
     {
         timestamps: true,
@@ -86,7 +91,13 @@ UserSchema.pre('save', async function (next) {
 /**
  * @typedef User
  */
-const User = mongoose.model<User>('User', UserSchema);
+const User = mongoose.model<IUser>('User', UserSchema);
 
 
 export default User;
+
+
+// User
+//  .find()
+//  .populate('friends')
+//  .exec(...)

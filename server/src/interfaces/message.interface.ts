@@ -1,5 +1,6 @@
+import mongoose from "mongoose";
 
-export interface IMesssagList {
+export interface IMesssagList  {
 
     status: string,
     senderId: mongoose.Schema.Types.ObjectId,

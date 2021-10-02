@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 import { TokenStates } from "../constants/token.constant";
 
+import { IToken } from "../interfaces/token.interface";
 
 const tokenSchema: mongoose.Schema = new mongoose.Schema<IToken>(
     {
@@ -11,9 +12,9 @@ const tokenSchema: mongoose.Schema = new mongoose.Schema<IToken>(
             index: true,
         },
         user: {
-            type: mongoose.Types.ObjectId,
-            ref: 'User',
+            type: mongoose.Schema.Types.ObjectId,
             required: true,
+            ref: 'User',
         },
         type: {
             type: String,
@@ -38,4 +39,4 @@ const tokenSchema: mongoose.Schema = new mongoose.Schema<IToken>(
 const Token = mongoose.model<IToken>('Token', tokenSchema);
 
 
-export default  Token;
+export default Token;
