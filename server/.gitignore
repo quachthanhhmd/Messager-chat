@@ -1,0 +1,9 @@
+
+
+# dependency
+/node_modules
+.env
+
+
+# production
+/build
