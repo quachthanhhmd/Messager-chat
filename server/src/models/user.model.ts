@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import Plugin from "./plugins";
 
 import { initPasswordHash, comparePasswordHash } from "../config/bcrypt";
-
+import {IUser} from "../interfaces/user.interface";
 
 interface IEnumValidate {
     values: Array<string>,
@@ -16,15 +16,6 @@ const EnumGender: IEnumValidate = {
 }
 
 
-
-interface User {
-    username: string;
-    password: string;
-    avatar?: string;
-    displayName: string,
-    gender: string,
-
-}
 
 const UserSchema: mongoose.Schema = new mongoose.Schema<User>({
 

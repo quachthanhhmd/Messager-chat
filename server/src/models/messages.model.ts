@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 import { MessageType } from "../constants/message.constant";
 
+import {IMesssagList, IMessage} from "../interfaces/messsage.interface";
+
 const enumMessage = {
 
     values: Object.keys(MessageType).map(type => type),
@@ -11,21 +13,6 @@ const enumMessage = {
 
 
 
-interface IMesssagList {
-
-    status: string,
-    senderId: mongoose.Schema.Types.ObjectId,
-    content: string,
-    link: string, 
-    time: Date,
-    isSpoil: Boolean,
-}
-
-interface IMessage {
-
-    conversationId : mongoose.Schema.Types.ObjectId,
-    messageList: Array<IMesssagList>,
-}
 
 const MessageSchema: mongoose.Schema = new mongoose.Schema<IMessage>(
     {

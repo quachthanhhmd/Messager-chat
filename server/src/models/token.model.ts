@@ -3,14 +3,6 @@ import mongoose from "mongoose";
 import { TokenStates } from "../constants/token.constant";
 
 
-interface IToken {
-    token: string,
-    user: mongoose.Types.ObjectId, 
-    type: string,
-    expires: Date,
-
-}
-
 const tokenSchema: mongoose.Schema = new mongoose.Schema<IToken>(
     {
         token: {

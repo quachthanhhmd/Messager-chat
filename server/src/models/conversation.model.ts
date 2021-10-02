@@ -1,13 +1,8 @@
 import mongoose from "mongoose";
 
 import Plugin from "./plugins";
+import {IConversation} from "../interfaces/conversation.interface";
 
-
-interface IConversation {
-
-    conversationName: string,
-    peopleList: Array<mongoose.Types.ObjectId>,
-}
 
 const conversationSchema = new mongoose.Schema<IConversation>(
     {
@@ -15,10 +10,9 @@ const conversationSchema = new mongoose.Schema<IConversation>(
             type: String,
             default: "Conversation with Friend",
         },
-        peopleList: {
-            type: Array,
-           
-        },
+        peopleList: [
+            mongoose.Types.ObjectId
+        ],
 
     },
     {
