@@ -11,7 +11,7 @@ import UserError from "../../errors/user.error";
 
 const userResolvers = {
     Query: {
-        user: async (root, {id})  => {
+        user: async (root, { id }) => {
 
             console.log(id);
             return await userService.findUserById(id);
@@ -19,16 +19,20 @@ const userResolvers = {
     },
     Mutation: {
 
-        signup: catchAsync(async (parent, args: ISignUp) => {
+        signup: async (parent, args: ISignUp) => {
 
-            if (!args.username || !args.password) throw new AuthenticationError(UserError.signup.invalidUsernamePassword);
+            try {
 
-            const newUser = await userService.createUser(args);
-            // const user = await User.create(newUser);
+                if (!args.username || !args.password) throw new AuthenticationError(UserError.signup.invalidUsernamePassword);
 
-            return newUser;
+                const newUser = await userService.createUser(args);
+                // const user = await User.create(newUser);
 
-        })
+                return newUser;
+            } catch (error: any) {
+                throw new Error(error);
+            }
+        }
     }
 }
 
