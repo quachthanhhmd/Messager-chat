@@ -3,13 +3,21 @@ import { gql } from 'apollo-server-express';
 
 const userType = gql`
     type User {
-        id: String
+        _id: String
         username: String!
-        displayName: String
+        displayName: String!
         avatar: String
-        gender: String 
-        conservationList: [Conservation]
+        gender: String!
+      
     }
+    
+    type Query {
+        user(id: ID!): User
+    }
+
+    type Mutation {
+        signup(username: String!, password: String!, displayName: String!, gender: String!): User
+      }
 `;
 
 

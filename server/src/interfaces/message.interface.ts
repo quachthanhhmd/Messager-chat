@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface IMesssagList  {
+export interface IMesssagList  extends mongoose.Document {
 
     status: string,
     senderId: mongoose.Schema.Types.ObjectId,
@@ -10,7 +10,7 @@ export interface IMesssagList  {
     isSpoil: Boolean,
 }
 
-export interface IMessage {
+export interface IMessage  extends mongoose.Document{
 
     conversationId : mongoose.Schema.Types.ObjectId,
     messageList: Array<IMesssagList>,

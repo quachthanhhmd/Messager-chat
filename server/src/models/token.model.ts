@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 
 import { TokenStates } from "../constants/token.constant";
-
 import { IToken } from "../interfaces/token.interface";
+
+import Plugin from "./plugins";
+
+
 
 const tokenSchema: mongoose.Schema = new mongoose.Schema<IToken>(
     {
@@ -31,7 +34,7 @@ const tokenSchema: mongoose.Schema = new mongoose.Schema<IToken>(
     }
 );
 
-
+tokenSchema.plugin(Plugin.toJSON);
 
 /**
  * @typedef Token

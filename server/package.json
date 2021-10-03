@@ -23,6 +23,7 @@
     "helmet": "^4.6.0",
     "http": "^0.0.1-security",
     "joi": "^17.4.2",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.8",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13",
@@ -36,6 +37,7 @@
     "@types/dotenv": "^8.2.0",
     "@types/joi": "^17.2.3",
     "@types/logger": "^0.0.0",
+    "@types/moment": "^2.13.0",
     "@types/winston": "^2.4.4"
   }
 }

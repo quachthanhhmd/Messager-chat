@@ -1,8 +1,8 @@
-
+import mongoose from "mongoose";
 import { AuthenticationError, ForbiddenError, ApolloError } from 'apollo-server-express';
 
 
-import { User } from "../models";
+import  User  from "../models/user.model";
 
 import { ISignUp, IUser } from "../interfaces/user.interface";
 
@@ -46,7 +46,18 @@ import server from "../errors/server.error";
     return newUser;
 }
 
+/**
+ * 
+ * @param {mongoose.Schema.Types.ObjectId} id 
+ * @returns 
+ */
+const findUserById = async (id: string) => {
+
+    return await User.findById(id);
+}
+
 
 export default {
     createUser,
+    findUserById
 }

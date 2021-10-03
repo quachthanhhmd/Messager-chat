@@ -3,15 +3,14 @@ import mongoose from "mongoose";
 import { MessageType } from "../constants/message.constant";
 
 import {IMesssagList, IMessage} from "../interfaces/message.interface";
+import Plugin from "./plugins";
+
 
 const enumMessage = {
 
     values: Object.keys(MessageType).map(type => type),
     messages: `Type of message must be in ${Object.keys(MessageType).map(type => type).join(", ")}`,
 }
-
-
-
 
 
 const MessageSchema: mongoose.Schema = new mongoose.Schema<IMessage>(
@@ -54,6 +53,8 @@ const MessageSchema: mongoose.Schema = new mongoose.Schema<IMessage>(
         timestamps: true,
     }
 )
+
+MessageSchema.plugin(Plugin.toJSON);
 
 /**
  * @typedef Message

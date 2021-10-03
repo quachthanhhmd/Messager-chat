@@ -12,7 +12,7 @@ const conversationSchema = new mongoose.Schema<IConversation>(
         },
         peopleList: [
             {
-                type: mongoose.Types.ObjectId
+                type: mongoose.Types.ObjectId,
                 ref: "User",
             }
         ],
@@ -25,6 +25,7 @@ const conversationSchema = new mongoose.Schema<IConversation>(
 
 // add plugin that converts mongoose to json
 conversationSchema.plugin(Plugin.paginate);
+conversationSchema.plugin(Plugin.toJSON);
 
 const Conversation = mongoose.model<IConversation>('Conversation', conversationSchema);
 

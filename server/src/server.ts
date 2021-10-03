@@ -3,16 +3,33 @@ import http from "http";
 
 import env from "./config/env";
 import app from "./app";
+import apolloServer from "./apollo";
 
 import logger from "./config/logger";
 
-const server = http.createServer(app);
+(async () => {
+    const httpServer = http.createServer(app);
 
-mongoose.connect(env.MONGOOSE.URL, env.MONGOOSE.OPTIONS).then(() => {
-    logger.info('Connected to MongoDB');
-    //socket(server);
-    server.listen(env.PORT, () => {
-        logger.info(`Listening to port ${env.PORT}`);
+    await apolloServer.start();
+    apolloServer.applyMiddleware({
+        app,
+        path: '/'
     });
-});
 
+
+    // httpServer.listen(env.PORT, () => {
+    //     console.log(`🚀 Server ready at http://localhost:${env.PORT}${apolloServer.graphqlPath}`);
+    // })
+
+    mongoose.connect(env.MONGOOSE.URL, env.MONGOOSE.OPTIONS).then(() => {
+        logger.info('Connected to MongoDB');
+
+        httpServer.listen(env.PORT, () => {
+            logger.info(`🚀 Server ready at http://localhost:${env.PORT}${apolloServer.graphqlPath}`);
+        });
+    });
+
+    //apolloServer.installSubscriptionHandlers(httpServer);
+
+
+})();

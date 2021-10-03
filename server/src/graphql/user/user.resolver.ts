@@ -10,14 +10,22 @@ import catchAsync from '../../utils/catchAsync';
 import UserError from "../../errors/user.error";
 
 const userResolvers = {
+    Query: {
+        user: async (root, {id})  => {
+
+            console.log(id);
+            return await userService.findUserById(id);
+        },
+    },
     Mutation: {
+
         signup: catchAsync(async (parent, args: ISignUp) => {
 
             if (!args.username || !args.password) throw new AuthenticationError(UserError.signup.invalidUsernamePassword);
 
-            const newUser = userService.createUser(args);
+            const newUser = await userService.createUser(args);
             // const user = await User.create(newUser);
-            
+
             return newUser;
 
         })

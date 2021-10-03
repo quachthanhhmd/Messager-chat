@@ -1,4 +1,7 @@
+import moment from "moment";
+
 import mongoose from "mongoose";
+
 
 import Plugin from "./plugins";
 
@@ -57,8 +60,6 @@ const UserSchema: mongoose.Schema = new mongoose.Schema<IUser>({
     conversationList: [{type: mongoose.Schema.Types.ObjectId, ref: "Conversation"}],
     lastLogin: {
         type: Date,
-        required: true,
-        default: Date.now(),
     }
 },
     {
@@ -68,7 +69,7 @@ const UserSchema: mongoose.Schema = new mongoose.Schema<IUser>({
 
 // add plugin that converts mongoose to json
 UserSchema.plugin(Plugin.paginate);
-
+UserSchema.plugin(Plugin.toJSON);
 
 /**
  * Check if password matches the user's password
